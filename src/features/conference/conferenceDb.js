@@ -1,5 +1,14 @@
 const { SQLDataSource } = require('../../utils/sqlDataSource')
-
+const conferenceColumns = [
+  'id',
+  'ConferenceTypeId',
+  'LocationId',
+  'OrganizerEmail',
+  'CategoryId',
+  'StartDate',
+  'EndDate',
+  'Name'
+]
 class ConferenceDb extends SQLDataSource {
   generateWhereClause(queryBuilder, filters = {}) {
     const { startDate, endDate, organizerEmail } = filters
@@ -22,6 +31,14 @@ class ConferenceDb extends SQLDataSource {
 
   async getConferenceListTotalCount(filters) {
     return await this.knex('Conference').count('Id', { as: 'TotalCount' }).modify(this.generateWhereClause, filters).first()
+  }
+  async getConferenceById(id) {
+    const result = await this.knex
+      .select(...conferenceColumns)
+      .from('Conference')
+      .where('Id', id)
+      .first()
+    return result
   }
 }
 
