@@ -11,8 +11,8 @@ global.console = customConsole
 const { ApolloServer } = require('apollo-server-koa')
 const Koa = require('koa')
 
-// // Auth
-// // eslint-disable-next-line node/no-extraneous-require
+// Auth
+// eslint-disable-next-line node/no-extraneous-require
 // const cors = require('@koa/cors')
 // const bodyParser = require('koa-bodyparser')
 

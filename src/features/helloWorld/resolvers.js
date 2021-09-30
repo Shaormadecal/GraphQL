@@ -1,9 +1,8 @@
 const helloWorldResolvers = {
-    Query: {
-        myFirstEndpoint: async (_parent, _arguments, _context, _info) => {
-            return "Hello World!👋"
-        }
+  Query: {
+    myFirstEndpoint: (_parent, _args, _ctx, _info) => {
+      return 'Hello World! 🎃 This is coming from GraphQL server ✈'
     }
-};
-
-module.exports = helloWorldResolvers;
+  }
+}
+module.exports = helloWorldResolvers
